@@ -2,135 +2,66 @@
     --primary-green: #219653;
     --light-green: #eef7f1;
     --border-color: #ddd;
-    --text-main: #333;
     --bg-color: #f8f9f7;
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Inter', sans-serif;
     background-color: var(--bg-color);
     margin: 0;
-    color: var(--text-main);
+    padding: 20px;
 }
 
-.container {
-    max-width: 500px;
-    margin: 20px auto;
-    padding: 0 15px;
-}
+.container { max-width: 480px; margin: 0 auto; }
 
-header {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    margin-bottom: 30px;
-}
-
-.logo {
-    font-size: 24px;
-    font-weight: bold;
-}
-
+header { margin-bottom: 25px; }
+.logo { font-size: 22px; font-weight: 800; margin-bottom: 15px; }
 .logo span { color: var(--primary-green); }
 
-.user-types {
-    display: flex;
-    gap: 10px;
-}
-
+.user-types { display: flex; gap: 10px; }
 .user-types button {
-    background: none;
-    border: none;
-    color: #777;
-    cursor: pointer;
-    padding: 5px 10px;
+    background: none; border: none; padding: 6px 12px; color: #666; cursor: pointer;
 }
-
 .user-types button.active {
-    background: white;
-    border: 1px solid var(--border-color);
-    border-radius: 20px;
-    color: black;
+    background: white; border: 1px solid #ddd; border-radius: 20px; color: #000;
 }
 
-h1 { font-size: 22px; margin-bottom: 5px; }
-.subtitle { color: #666; font-size: 14px; margin-bottom: 20px; }
+h1 { font-size: 24px; margin: 0 0 8px 0; }
+.subtitle { color: #666; font-size: 14px; margin-bottom: 25px; }
 
 .card {
-    background: white;
-    padding: 25px;
-    border-radius: 12px;
-    border: 1px solid #eee;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    background: white; border-radius: 15px; padding: 25px;
+    border: 1px solid #eee; box-shadow: 0 4px 12px rgba(0,0,0,0.03);
 }
 
-.form-group { margin-bottom: 15px; }
-
-label {
-    display: block;
-    font-weight: 500;
-    margin-bottom: 8px;
-    font-size: 14px;
-}
+.form-group { margin-bottom: 18px; }
+label { display: block; font-size: 14px; font-weight: 600; margin-bottom: 8px; }
 
 input, select, textarea {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
-    box-sizing: border-box;
-    font-size: 14px;
+    width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px;
+    font-size: 15px; box-sizing: border-box;
 }
 
-.priority-toggle {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 20px;
-}
-
+.priority-toggle { display: flex; gap: 12px; margin-bottom: 20px; }
 .btn-priority {
-    flex: 1;
-    padding: 15px 10px;
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
-    background: #f2f2f2;
-    cursor: pointer;
-    font-size: 13px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
+    flex: 1; padding: 15px; border: 1px solid #eee; border-radius: 10px;
+    background: #f9f9f9; cursor: pointer; display: flex; align-items: center; gap: 8px;
 }
+.active-urgent { background: #fff5f5; border-color: #ffc1c1; }
+.active-normal { background: var(--light-green); border-color: #c3e6cb; }
 
-.active-urgent { background: #f9ebeb; border-color: #eb5757; }
-.active-normal { background: var(--light-green); border-color: #a9dfbf; }
-
-.dot { width: 12px; height: 12px; border-radius: 50%; display: inline-block; }
+.dot { width: 10px; height: 10px; border-radius: 50%; }
 .red { background: #eb5757; }
-.green { background: var(--primary-green); }
+.green { background: #27ae60; }
 
-.otp-group { display: flex; gap: 10px; }
-.otp-btn {
-    white-space: nowrap;
-    padding: 0 15px;
-    border-radius: 8px;
-    border: 1px solid var(--border-color);
-    background: white;
-    cursor: pointer;
-}
+.hidden-section { display: none; padding-top: 20px; border-top: 1px solid #f0f0f0; margin-top: 20px; }
 
-.hidden-section { display: none; margin-top: 20px; border-top: 1px solid #eee; pt: 20px; }
+.otp-group { display: flex; gap: 8px; }
+.otp-btn { background: white; border: 1px solid #ddd; border-radius: 8px; padding: 0 15px; cursor: pointer; white-space: nowrap; }
 
 .next-btn, .submit-btn {
-    width: 100%;
-    padding: 14px;
-    background: var(--primary-green);
-    color: white;
-    border: none;
-    border-radius: 8px;
-    font-weight: bold;
-    cursor: pointer;
-    margin-top: 10px;
+    width: 100%; padding: 15px; border: none; border-radius: 8px;
+    background: var(--primary-green); color: white; font-weight: 700; cursor: pointer;
 }
 
-textarea { height: 80px; resize: none; }
+textarea { height: 90px; resize: none; }
