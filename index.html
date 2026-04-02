@@ -12,9 +12,7 @@
             <div class="logo">Zero<span>Waste</span></div>
             <nav class="user-types">
                 <button class="active">Donor</button>
-                <button>NGO / Recipient</button>
-                <button>Admin</button>
-                <button>Volunteer</button>
+               
             </nav>
         </header>
 
@@ -38,8 +36,18 @@
 
                     <div id="foodDetails" class="hidden-section">
                         <div class="form-group">
-                            <label>Food description</label>
-                            <input type="text" id="foodDesc" placeholder="e.g. 30 idli, 2 kg sambar, 1 kg chutney" required>
+                            <label>Food Detail</label>
+                            <input type="text" id="pickupAddr" placeholder="type about food" required>
+                        </div>
+                        
+                        <div class="form-group"
+                             <label>Food Type</label>
+                             <select id="foodtype" required>
+                                 <option value="" disabled selected>Select food variety</option>
+                                 <option>Veg</option>
+                                 <option>Non-Veg</option>
+                                 <option>Others(Drinks, Fruits)</option>
+                            </select>
                         </div>
 
                         <div class="form-group">
