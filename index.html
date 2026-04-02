@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FoodConnect - Donor Portal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">Food<span>Connect</span></div>
+            <nav class="user-types">
+                <button class="active">Donor</button>
+                <button>NGO / Recipient</button>
+                <button>Admin</button>
+                <button>Volunteer</button>
+            </nav>
+        </header>
+
+        <main>
+            <h1>Submit a Food Donation</h1>
+            <p class="subtitle">Fill in the details below. Donations must be submitted within 2 hours of cooking.</p>
+
+            <form id="donationForm">
+                <div class="card">
+                    <div class="form-section">
+                        <label>Donation priority</label>
+                        <div class="priority-toggle">
+                            <button type="button" id="urgentBtn" class="btn-priority">
+                                <span class="dot red"></span> Urgent — expires soon
+                            </button>
+                            <button type="button" id="normalBtn" class="btn-priority active-normal">
+                                <span class="dot green"></span> Normal
+                            </button>
+                        </div>
+                    </div>
+
+                    <div id="foodDetails" class="hidden-section">
+                        <div class="form-group">
+                            <label>Food description</label>
+                            <input type="text" placeholder="e.g. 30 idli, 2 kg sambar, 1 kg chutney">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Quantity (servings)</label>
+                            <input type="text" placeholder="e.g. 30">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Cooked at (time)</label>
+                            <select id="cookTime">
+                                <option value="" disabled selected>Select time</option>
+                                <option>Just now</option>
+                                <option>30 mins ago</option>
+                                <option>1 hour ago</option>
+                            </select>
+                        </div>
+                        <button type="button" class="next-btn" onclick="showSection('locationSection')">Submit</button>
+                    </div>
+
+                    <div id="locationSection" class="hidden-section">
+                        <div class="form-group">
+                            <label>Pickup location</label>
+                            <input type="text" placeholder="Street address, area, city">
+                        </div>
+                        <button type="button" class="next-btn" onclick="showSection('finalSection')">Submit</button>
+                    </div>
+
+                    <div id="finalSection" class="hidden-section">
+                        <div class="form-group">
+                            <label>Donor contact (mobile)</label>
+                            <div class="otp-group">
+                                <input type="text" placeholder="+91 XXXXXXXXXX">
+                                <button type="button" class="otp-btn">Send OTP</button>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Food photo (optional — AI freshness check)</label>
+                            <div class="file-input">
+                                <input type="file" id="foodPhoto">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Additional notes</label>
+                            <textarea placeholder="Allergies, packaging, storage instructions..."></textarea>
+                        </div>
+
+                        <button type="submit" class="submit-btn">Submit donation</button>
+                    </div>
+                </div>
+            </form>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
