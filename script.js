@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Click Urgent to start the flow
     urgentBtn.addEventListener('click', () => {
         urgentBtn.classList.add('active-urgent');
-        normalBtn.classList.remove('active-normal');
+        normalBtn.classList.add('active-normal');
         foodDetails.style.display = 'block';
     });
 
