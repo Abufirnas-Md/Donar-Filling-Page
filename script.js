@@ -1,36 +1,40 @@
 document.addEventListener('DOMContentLoaded', () => {
     const urgentBtn = document.getElementById('urgentBtn');
-    const normalBtn = document.getElementById('normalBtn');
     const foodDetails = document.getElementById('foodDetails');
 
-    // Toggle Urgent Logic
     urgentBtn.addEventListener('click', () => {
         urgentBtn.classList.add('active-urgent');
-        normalBtn.classList.remove('active-normal');
-        
-        // Show the first hidden section (Food Description/Quantity/Time)
+        document.getElementById('normalBtn').classList.remove('active-normal');
         foodDetails.style.display = 'block';
-    });
-
-    normalBtn.addEventListener('click', () => {
-        normalBtn.classList.add('active-normal');
-        urgentBtn.classList.remove('active-urgent');
-        // Logic for normal can be added here if needed
-    });
-
-    // Final form submission
-    document.getElementById('donationForm').addEventListener('submit', (e) => {
-        e.preventDefault();
-        alert('Donation submitted successfully!');
     });
 });
 
-// Function to transition between sections
-function showSection(sectionId) {
-    const section = document.getElementById(sectionId);
-    if (section) {
-        section.style.display = 'block';
-        // Smooth scroll to the new section
-        section.scrollIntoView({ behavior: 'smooth' });
+// Function to check if fields in the current section are filled before moving next
+function validateAndNext(currentSectionId, nextSectionId) {
+    const currentSection = document.getElementById(currentSectionId);
+    const inputs = currentSection.querySelectorAll('input, select, textarea');
+    let allFilled = true;
+
+    inputs.forEach(input => {
+        if (!input.checkValidity()) {
+            input.reportValidity(); // Shows the "Please fill out this field" tooltip
+            allFilled = false;
+        }
+    });
+
+    if (allFilled) {
+        showSection(nextSectionId);
     }
 }
+
+function showSection(sectionId) {
+    const section = document.getElementById(sectionId);
+    section.style.display = 'block';
+    section.scrollIntoView({ behavior: 'smooth' });
+}
+
+// Final Submission
+document.getElementById('donationForm').addEventListener('submit', (e) => {
+    e.preventDefault();
+    alert('Thank you! Your donation request has been submitted.');
+});
