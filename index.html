@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FoodConnect - Donor Portal</title>
+    <title>ZeroWaste - Donor Portal</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -12,6 +12,9 @@
             <div class="logo">Zero<span>Waste</span></div>
             <nav class="user-types">
                 <button class="active">Donor</button>
+                <button>NGO / Recipient</button>
+                <button>Admin</button>
+                <button>Volunteer</button>
             </nav>
         </header>
 
@@ -33,66 +36,57 @@
                         </div>
                     </div>
 
-                    <div id="foodDetails" class="form-step">
+                    <div id="foodDetails" class="hidden-section">
                         <div class="form-group">
-                            <label for="foodType">Food description</label>
-                            <select id="foodType">
-                                <option value="" disabled selected>Select Food Type</option>
-                                <option value="veg">Veg</option>
-                                <option value="non-veg">Non-Veg</option>
-                                <option value="other">Other</option>
-                            </select>
-                        </div>
-
-                        <div class="form-group">
-                            <label>Item Names</label>
-                            <input type="text" placeholder="e.g. 30 idli, 2 kg sambar">
+                            <label>Food description</label>
+                            <input type="text" id="foodDesc" placeholder="e.g. 30 idli, 2 kg sambar, 1 kg chutney" required>
                         </div>
 
                         <div class="form-group">
                             <label>Quantity (servings)</label>
-                            <input type="number" placeholder="e.g. 30">
+                            <input type="number" id="foodQty" placeholder="e.g. 30" required>
                         </div>
 
                         <div class="form-group">
                             <label>Cooked at (time)</label>
-                            <select id="cookTime">
+                            <select id="cookTime" required>
                                 <option value="" disabled selected>Select time</option>
-                                <option value="0">few mins ago</option>
-                                <option value="0.5">30 mins ago</option>
-                                <option value="1">1 hour ago</option>
-                                <option value="2">2 hours ago</option>
-                                <option value="4">4 hours ago</option>
+                                <option value="now">Just now</option>
+                                <option value="30m">30 mins ago</option>
+                                <option value="1h">1 hour ago</option>
+                                <option value="2h">2 hours ago</option>
                             </select>
                         </div>
-                        <button type="button" class="next-btn" onclick="showSection('locationSection')">Next Step</button>
+                        <button type="button" class="next-btn" onclick="validateStep('foodDetails', 'locationSection')">Submit</button>
                     </div>
 
                     <div id="locationSection" class="hidden-section">
                         <div class="form-group">
                             <label>Pickup Address</label>
-                            <input type="text" placeholder="Street address, area, city">
+                            <input type="text" id="pickupAddr" placeholder="Street address, area, city" required>
                         </div>
-                        <button type="button" class="next-btn" onclick="showSection('finalSection')">Next Step</button>
+                        <button type="button" class="next-btn" onclick="validateStep('locationSection', 'finalSection')">Submit</button>
                     </div>
 
                     <div id="finalSection" class="hidden-section">
                         <div class="form-group">
                             <label>Donor contact (mobile)</label>
                             <div class="otp-group">
-                                <input type="tel" placeholder="+91 XXXXXXXXXX">
+                                <input type="tel" id="mobile" placeholder="XXXXXXXXXX" pattern="[0-9]{10}" required>
                                 <button type="button" class="otp-btn">Send OTP</button>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label>Food photo (optional — AI freshness check)</label>
-                            <input type="file" id="foodPhoto" accept="image/*">
+                            <label>Food photo (Required — AI freshness check)</label>
+                            <div class="file-input">
+                                <input type="file" id="foodPhoto" accept="image/*" required>
+                            </div>
                         </div>
 
                         <div class="form-group">
                             <label>Additional notes</label>
-                            <textarea placeholder="Allergies, packaging, storage instructions..."></textarea>
+                            <textarea id="extraNotes" placeholder="Allergies, packaging, storage instructions..." required></textarea>
                         </div>
 
                         <button type="submit" class="submit-btn">Submit donation</button>
