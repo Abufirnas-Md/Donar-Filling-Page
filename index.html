@@ -1,110 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FoodConnect - Donor Portal</title>
-    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZeroWaste - Donor Portal</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <header>
-            <div class="logo">Zero<span>Waste</span></div>
-            <nav class="user-types">
-                <button class="active">Donor</button>
-            </nav>
-        </header>
+    <div class="container">
+        <header>
+            <div class="logo">Zero<span>Waste</span></div>
+            <nav class="user-types">
+                <button class="active">Donor</button>
+                <button>NGO / Recipient</button>
+                <button>Admin</button>
+                <button>Volunteer</button>
+            </nav>
+        </header>
 
-        <main>
-            <h1>Submit a Food Donation</h1>
-            <p class="subtitle">Fill in the details below. Donations must be submitted within 2 hours of cooking.</p>
+        <main>
+            <h1>Submit a Food Donation</h1>
+            <p class="subtitle">Fill in the details below. Donations must be submitted within 2 hours of cooking.</p>
 
-            <form id="donationForm">
-                <div class="card">
-                    <div class="form-section">
-                        <label>Donation priority</label>
-                        <div class="priority-toggle">
-                            <button type="button" id="urgentBtn" class="btn-priority">
-                                <span class="dot red"></span> Urgent — expires soon
-                            </button>
-                            <button type="button" id="normalBtn" class="btn-priority active-normal">
-                                <span class="dot green"></span> Normal
-                            </button>
-                        </div>
-                    </div>
+            <form id="donationForm">
+                <div class="card">
+                    <div class="form-section">
+                        <label>Donation priority</label>
+                        <div class="priority-toggle">
+                            <button type="button" id="urgentBtn" class="btn-priority">
+                                <span class="dot red"></span> Urgent — expires soon
+                            </button>
+                            <button type="button" id="normalBtn" class="btn-priority active-normal">
+                                <span class="dot green"></span> Normal
+                            </button>
+                        </div>
+                    </div>
 
-                    <div id="foodDetails" class="hidden-section">
-                        <div class="form-group">
-                            <label>Food description</label>
-                            <select id="Food Description">
-                                <option value="" disabled selected>Select Fod Type</option>
-                                <option>Veg</option>
-                                <option>Non-Veg</option>
-                                <option>Other</option>
-                        <div class="form-group">
-                            <label>Others</label>
-                            <textarea placeholder="about food"></textarea>
-                        </div>
-                        
-                            <input type="text" placeholder="e.g. 30 idli, 2 kg sambar, 1 kg chutney">
-                        </div>
+                    <div id="foodDetails" class="hidden-section">
+                        <div class="form-group">
+                            <label>Food description</label>
+                            <input type="text" id="foodDesc" placeholder="e.g. 30 idli, 2 kg sambar, 1 kg chutney" required>
+                        </div>
 
-                        <div class="form-group">
-                            <label>Quantity (servings)</label>
-                            <input type="text" placeholder="e.g. 30">
-                        </div>
+                        <div class="form-group">
+                            <label>Quantity (servings)</label>
+                            <input type="number" id="foodQty" placeholder="e.g. 30" required>
+                        </div>
 
-                        <div class="form-group">
-                            <label>Cooked at (time)</label>
-                            <select id="cookTime">
-                                <option value="" disabled selected>Select time</option>
-                                <option>few mins ago</option>
-                                <option>30 mins ago</option>
-                                <option>1 hour ago</option>
-                                <opiton>2 hour ago</opiton>
-                                <option>4 hour ago</option>
-                                <option>6 hours ago</option>
-                                
-                            </select>
-                        </div>
-                        <button type="button" class="next-btn" onclick="showSection('locationSection')">Submit</button>
-                    </div>
+                        <div class="form-group">
+                            <label>Cooked at (time)</label>
+                            <select id="cookTime" required>
+                                <option value="" disabled selected>Select time</option>
+                                <option value="now">Just now</option>
+                                <option value="30m">30 mins ago</option>
+                                <option value="1h">1 hour ago</option>
+                                <option value="2h">2 hours ago</option>
+                            </select>
+                        </div>
+                        <button type="button" class="next-btn" onclick="validateStep('foodDetails', 'locationSection')">Submit</button>
+                    </div>
 
-                    <div id="locationSection" class="hidden-section">
-                        <div class="form-group">
-                            <label>Pickup Address</label>
-                            <input type="text" placeholder="Street address, area, city">
-                        </div>
-                        <button type="button" class="next-btn" onclick="showSection('finalSection')">Submit</button>
-                    </div>
+                    <div id="locationSection" class="hidden-section">
+                        <div class="form-group">
+                            <label>Pickup Address</label>
+                            <input type="text" id="pickupAddr" placeholder="Street address, area, city" required>
+                        </div>
+                        <button type="button" class="next-btn" onclick="validateStep('locationSection', 'finalSection')">Submit</button>
+                    </div>
 
-                    <div id="finalSection" class="hidden-section">
-                        <div class="form-group">
-                            <label>Donor contact (mobile)</label>
-                            <div class="otp-group">
-                                <input type="text" placeholder="+91 XXXXXXXXXX">
-                                <button type="button" class="otp-btn">Send OTP</button>
-                            </div>
-                        </div>
+                    <div id="finalSection" class="hidden-section">
+                        <div class="form-group">
+                            <label>Donor contact (mobile)</label>
+                            <div class="otp-group">
+                                <input type="tel" id="mobile" placeholder="XXXXXXXXXX" pattern="[0-9]{10}" required>
+                                <button type="button" class="otp-btn">Send OTP</button>
+                            </div>
+                        </div>
 
-                        <div class="form-group">
-                            <label>Food photo (optional — AI freshness check)</label>
-                            <div class="file-input">
-                                <input type="file" id="foodPhoto">
-                            </div>
-                        </div>
+                        <div class="form-group">
+                            <label>Food photo (Required — AI freshness check)</label>
+                            <div class="file-input">
+                                <input type="file" id="foodPhoto" accept="image/*" required>
+                            </div>
+                        </div>
 
-                        <div class="form-group">
-                            <label>Additional notes</label>
-                            <textarea placeholder="Allergies, packaging, storage instructions..."></textarea>
-                        </div>
+                        <div class="form-group">
+                            <label>Additional notes</label>
+                            <textarea id="extraNotes" placeholder="Allergies, packaging, storage instructions..." required></textarea>
+                        </div>
 
-                        <button type="submit" class="submit-btn">Submit donation</button>
-                    </div>
-                </div>
-            </form>
-        </main>
-    </div>
-    <script src="script.js"></script>
+                        <button type="submit" class="submit-btn">Submit donation</button>
+                    </div>
+                </div>
+            </form>
+        </main>
+    </div>
+    <script src="script.js"></script>
 </body>
-</html>. is this code right 
+</html>
