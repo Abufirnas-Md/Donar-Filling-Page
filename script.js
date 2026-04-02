@@ -1,43 +1,24 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const urgentBtn = document.getElementById('urgentBtn');
-    const normalBtn = document.getElementById('normalBtn');
-    const foodDetails = document.getElementById('foodDetails');
+let generatedOTP = 0;
 
-    // Click Urgent to start the flow
-    urgentBtn.addEventListener('click', () => {
-        urgentBtn.classList.add('active-urgent');
-        normalBtn.classList.add('active-normal');
-        foodDetails.style.display = 'block';
-    });
+function generateOTP() {
+    generatedOTP = Math.floor(100000 + Math.random() * 900000); // 6-digit OTP
+    document.getElementById("otpBox").innerHTML = "Your OTP: <b>" + generatedOTP + "</b>";
+}
 
-    // Handle final submission
-    document.getElementById('donationForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-        alert('Success! Your donation has been recorded.');
-        this.reset();
-        window.location.reload(); // Reset the view
-    });
-});
+function verifyOTP() {
+    let enteredOTP = document.getElementById("otpInput").value;
 
-/**
- * Validates only the visible fields in the current step
- * before showing the next section.
- */
-function validateStep(currentId, nextId) {
-    const currentSection = document.getElementById(currentId);
-    const inputs = currentSection.querySelectorAll('input, select, textarea');
-    let isValid = true;
+    if (enteredOTP == generatedOTP) {
+        document.getElementById("result").style.color = "lightgreen";
+        document.getElementById("result").innerHTML = "✔ Login Successful";
 
-    inputs.forEach(input => {
-        if (!input.checkValidity()) {
-            input.reportValidity(); // Triggers the "Please fill out this field" tooltip
-            isValid = false;
-        }
-    });
+        // Redirect after 1 second
+        setTimeout(() => {
+            window.location.href = "https://abufirnas-md.github.io/Filling-Page/";
+        }, 1000);
 
-    if (isValid) {
-        const nextSection = document.getElementById(nextId);
-        nextSection.style.display = 'block';
-        nextSection.scrollIntoView({ behavior: 'smooth' });
+    } else {
+        document.getElementById("result").style.color = "red";
+        document.getElementById("result").innerHTML = "✘ Wrong OTP";
     }
 }
