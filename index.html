@@ -39,53 +39,53 @@
                     <div id="foodDetails" class="hidden-section">
                         <div class="form-group">
                             <label>Food description</label>
-                            <input type="text" placeholder="e.g. 30 idli, 2 kg sambar, 1 kg chutney">
+                            <input type="text" id="desc" placeholder="e.g. 30 idli, 2 kg sambar, 1 kg chutney" required>
                         </div>
 
                         <div class="form-group">
                             <label>Quantity (servings)</label>
-                            <input type="text" placeholder="e.g. 30">
+                            <input type="text" id="qty" placeholder="e.g. 30" required>
                         </div>
 
                         <div class="form-group">
                             <label>Cooked at (time)</label>
-                            <select id="cookTime">
+                            <select id="cookTime" required>
                                 <option value="" disabled selected>Select time</option>
-                                <option>Just now</option>
-                                <option>30 mins ago</option>
-                                <option>1 hour ago</option>
+                                <option value="now">Just now</option>
+                                <option value="30m">30 mins ago</option>
+                                <option value="1h">1 hour ago</option>
                             </select>
                         </div>
-                        <button type="button" class="next-btn" onclick="showSection('locationSection')">Submit</button>
+                        <button type="button" class="next-btn" onclick="validateAndNext('foodDetails', 'locationSection')">Submit</button>
                     </div>
 
                     <div id="locationSection" class="hidden-section">
                         <div class="form-group">
                             <label>Pickup Address</label>
-                            <input type="text" placeholder="Street address, area, city">
+                            <input type="text" id="address" placeholder="Street address, area, city" required>
                         </div>
-                        <button type="button" class="next-btn" onclick="showSection('finalSection')">Submit</button>
+                        <button type="button" class="next-btn" onclick="validateAndNext('locationSection', 'finalSection')">Submit</button>
                     </div>
 
                     <div id="finalSection" class="hidden-section">
                         <div class="form-group">
                             <label>Donor contact (mobile)</label>
                             <div class="otp-group">
-                                <input type="text" placeholder="XXXXXXXXXX">
+                                <input type="tel" id="phone" placeholder="XXXXXXXXXX" pattern="[0-9]{10}" required>
                                 <button type="button" class="otp-btn">Send OTP</button>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label>Food photo (optional — AI freshness check)</label>
+                            <label>Food photo (Required for AI freshness check)</label>
                             <div class="file-input">
-                                <input type="file" id="foodPhoto">
+                                <input type="file" id="foodPhoto" accept="image/*" required>
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label>Additional notes</label>
-                            <textarea placeholder="Allergies, packaging, storage instructions..."></textarea>
+                            <textarea id="notes" placeholder="Allergies, packaging, storage instructions..." required></textarea>
                         </div>
 
                         <button type="submit" class="submit-btn">Submit donation</button>
