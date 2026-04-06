@@ -1,36 +1,51 @@
-let generatedOTP = "";
+const email = document.getElementById("email");
+const captchaBox = document.getElementById("captchaBox");
+const submitBtn = document.getElementById("submitBtn");
 
-function sendOTP() {
-  // Generate a simple 4-digit OTP
-  generatedOTP = Math.floor(1000 + Math.random() * 9000).toString();
-  alert("Your OTP is: " + generatedOTP); // In real app, send via SMS
-  document.getElementById("otpBox").classList.remove("hidden");
-}
+let captcha = generateCaptcha();
 
-function verifyOTP() {
-  const enteredOTP = document.getElementById("otpInput").value;
-  if (enteredOTP === generatedOTP) {
-    alert("OTP Verified Successfully!");
-    document.getElementById("otpBox").classList.add("hidden");
-    document.getElementById("donationDetails").classList.remove("hidden");
-  } else {
-    alert("Invalid OTP. Please try again.");
-  }
-}
-
-function getLocation() {
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(function(position) {
-      document.getElementById("location").value =
-        position.coords.latitude + ", " + position.coords.longitude;
-    });
-  } else {
-    alert("Geolocation not supported.");
-  }
-}
-
-document.getElementById("donorForm").addEventListener("submit", function(e) {
-  e.preventDefault();
-  document.getElementById("donationDetails").classList.add("hidden");
-  document.getElementById("success").classList.remove("hidden");
+// EMAIL triggers CAPTCHA
+email.addEventListener("blur", () => {
+    if (email.value.includes("@")) {
+        captchaBox.classList.remove("hidden");
+        document.getElementById("captchaText").innerText = captcha;
+    }
 });
+
+// CAPTCHA validation unlocks submit
+document.getElementById("captchaInput").addEventListener("input", (e) => {
+    if (e.target.value === captcha) {
+        submitBtn.disabled = false;
+    } else {
+        submitBtn.disabled = true;
+    }
+});
+
+// FORM SUBMIT
+document.getElementById("requestForm").addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    document.getElementById("otpBox").classList.remove("hidden");
+
+    window.otp = Math.floor(100000 + Math.random() * 900000);
+    alert("OTP: " + window.otp); // simulate
+});
+
+// OTP VERIFY
+function verifyOTP() {
+    const val = document.getElementById("otpInput").value;
+
+    if (val == window.otp) {
+        document.getElementById("otpBox").classList.add("hidden");
+        document.getElementById("success").classList.remove("hidden");
+
+        setTimeout(() => location.reload(), 2000);
+    } else {
+        alert("Invalid OTP");
+    }
+}
+
+// CAPTCHA generator
+function generateCaptcha() {
+    return Math.random().toString(36).substring(2, 7);
+}
