@@ -1,89 +1,102 @@
+* { box-sizing: border-box; }
+
 body {
-  font-family: Arial, sans-serif;
-  background: #f4f4f4;
-  margin: 0;
-  padding: 0;
+    font-family: system-ui, sans-serif;
+    background: #f3f5f7;
+    margin: 0;
 }
 
 .container {
-  max-width: 500px;
-  margin: 40px auto;
-  padding: 20px;
+    max-width: 480px;
+    margin: 50px auto;
+    padding: 15px;
 }
 
 .logo {
-  text-align: center;
-  font-size: 2em;
-  color: #333;
+    text-align: center;
+    margin-bottom: 20px;
 }
 
-.logo span {
-  color: #e74c3c;
-}
+.logo span { color: #16a34a; }
 
 .card {
-  background: #fff;
-  padding: 25px;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-}
-
-h2 {
-  margin-top: 0;
-  color: #444;
+    background: #fff;
+    padding: 25px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
 }
 
 .subtext {
-  color: #777;
-  margin-bottom: 20px;
+    color: #6b7280;
+    font-size: 14px;
+    margin-bottom: 20px;
 }
 
 .field {
-  margin-bottom: 15px;
+    margin-bottom: 16px;
 }
 
 label {
-  display: block;
-  margin-bottom: 5px;
-  font-weight: bold;
-  color: #333;
+    font-size: 13px;
+    font-weight: 500;
 }
 
 input, select, textarea {
-  width: 100%;
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
 }
 
-button {
-  background: #e74c3c;
-  color: #fff;
-  border: none;
-  padding: 10px;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-button:hover {
-  background: #c0392b;
+input:focus, textarea:focus {
+    outline: none;
+    border-color: #16a34a;
 }
 
 .link-btn {
-  margin-top: 8px;
-  background: #3498db;
+    background: none;
+    border: none;
+    color: #16a34a;
+    font-size: 12px;
+    cursor: pointer;
 }
 
-.link-btn:hover {
-  background: #2980b9;
+button {
+    width: 100%;
+    padding: 12px;
+    border-radius: 12px;
+    border: none;
+    background: #16a34a;
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
 }
 
-.hidden {
-  display: none;
+button:disabled {
+    background: #ccc;
 }
 
-#success {
-  text-align: center;
-  color: green;
-  font-weight: bold;
+/* Success check */
+.check {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 4px solid #16a34a;
+    position: relative;
+    margin: 20px auto;
 }
+
+.check::after {
+    content: "";
+    position: absolute;
+    left: 15px;
+    top: 20px;
+    width: 15px;
+    height: 30px;
+    border-right: 4px solid #16a34a;
+    border-bottom: 4px solid #16a34a;
+    transform: rotate(45deg);
+}
+
+.hidden { display: none; }
