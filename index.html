@@ -3,14 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FoodConnect Donar Donation</title>
+<title>FoodConnect Donor Donation</title>
 <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
 <main class="container">
-
     <h1 class="logo">Food<span>Connect</span></h1>
 
     <section class="card" aria-labelledby="formTitle">
@@ -18,10 +16,9 @@
         <p class="subtext">Connect with Food Connect.</p>
 
         <form id="requestForm" novalidate>
-
-            <!-- Donar -->
+            <!-- Donor -->
             <div class="field">
-                <label for="org">Donar Name</label>
+                <label for="org">Donor Name</label>
                 <input id="org" type="text" required>
             </div>
 
@@ -34,34 +31,39 @@
                 <label for="quantity">Food Quantity</label>
                 <input id="quantity" placeholder="Meals for 20–30 people" required>
             </div>
+
+            <!-- Food Type -->
             <div class="field">
-            <label for="foodType">Food Type</label>
-            <select id="foodType" required>
-                <option value="">Select</option>
-                <option>Vegetarian</option>
-                <option>Non-Vegetarian</option>
-                <option>Snacks</option>
-                <option>Drinks</option>
-                <option>Rice</option>
-                <option>Bread</option>
-                <option>Fruits</option>
-                <option>Vegetables</option>
-                <option>Juice</option>
-                <option>Sweets</option>
-                <option>Other</option>
-            </select>
-            <input id="foodOther" type="text" placeholder="If Other, specify here">
+                <label for="foodType">Food Type</label>
+                <select id="foodType" required onchange="toggleOtherFood()">
+                    <option value="">Select</option>
+                    <option value="Vegetarian">Vegetarian</option>
+                    <option value="Non-Vegetarian">Non-Vegetarian</option>
+                    <option value="Snacks">Snacks</option>
+                    <option value="Drinks">Drinks</option>
+                    <option value="Rice">Rice</option>
+                    <option value="Bread">Bread</option>
+                    <option value="Fruits">Fruits</option>
+                    <option value="Vegetables">Vegetables</option>
+                    <option value="Juice">Juice</option>
+                    <option value="Sweets">Sweets</option>
+                    <option value="Other">Other</option>
+                </select>
+                <!-- Hidden by default -->
+                <input id="foodOther" type="text" placeholder="If Other, specify here" class="hidden">
             </div>
 
+            <!-- Location (no GPS button now) -->
             <div class="field">
                 <label for="location">Location</label>
                 <input id="location" required>
-            
             </div>
 
+            <!-- Pickup Option -->
             <div class="field">
                 <label for="delivery">Pickup Option</label>
                 <select id="delivery" required>
+                    <option value="">Select</option>
                     <option>Self Delivered by Donor</option>
                     <option>Delivery Boy (if NGO has)</option>
                     <option>Volunteer (only acceptable by NGO)</option>
@@ -91,7 +93,6 @@
             </div>
 
             <button id="submitBtn" disabled>Submit Request</button>
-
         </form>
 
         <!-- OTP -->
@@ -106,7 +107,6 @@
             <div class="check"></div>
             <p>Request placed successfully</p>
         </div>
-
     </section>
 </main>
 
