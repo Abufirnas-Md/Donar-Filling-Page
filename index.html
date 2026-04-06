@@ -1,113 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FoodConnect Donor Portal</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FoodConnect Donar Donation</title>
+<link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-  <main class="container">
+
+<main class="container">
+
     <h1 class="logo">Food<span>Connect</span></h1>
+
     <section class="card" aria-labelledby="formTitle">
-      <h2 id="formTitle">Request Food Assistance</h2>
-      <p class="subtext">Connect with nearby donors efficiently.</p>
+        <h2 id="formTitle">Providing Food</h2>
+        <p class="subtext">Connect with Food Connect.</p>
 
-      <form id="donorForm" novalidate>
-        <!-- Organisation Name -->
-        <div class="field">
-          <label for="org">Organisation Name</label>
-          <input id="org" type="text" required>
-        </div>
+        <form id="requestForm" novalidate>
 
-        <!-- Contact Number -->
-        <div class="field">
-          <label for="phone">Contact Number</label>
-          <input id="phone" type="tel" required>
-          <button type="button" class="link-btn" onclick="sendOTP()">Send OTP</button>
-        </div>
+            <!-- Donar -->
+            <div class="field">
+                <label for="org">Donar Name</label>
+                <input id="org" type="text" required>
+            </div>
 
-        <!-- OTP Verification -->
-        <div id="otpBox" class="hidden">
-          <label for="otpInput">Enter OTP</label>
-          <input id="otpInput" type="text" placeholder="Enter OTP">
-          <button type="button" onclick="verifyOTP()">Verify OTP</button>
-        </div>
+            <div class="field">
+                <label for="phone">Contact Number</label>
+                <input id="phone" type="tel" required>
+            </div>
 
-        <!-- Extra Fields (hidden until OTP verified) -->
-        <div id="donationDetails" class="hidden">
-          <!-- Meal Requirement -->
-          <div class="field">
-            <label for="quantity">Meal Requirement</label>
-            <input id="quantity" placeholder="Meals for 20–30 people" required>
-          </div>
-
-          <!-- Food Type -->
-          <div class="field">
+            <div class="field">
+                <label for="quantity">Food Quantity</label>
+                <input id="quantity" placeholder="Meals for 20–30 people" required>
+            </div>
+            <div class="field">
             <label for="foodType">Food Type</label>
             <select id="foodType" required>
-              <option value="">Select</option>
-              <option>Vegetarian</option>
-              <option>Non-Vegetarian</option>
-              <option>Snacks</option>
-              <option>Drinks</option>
-              <option>Rice</option>
-              <option>Bread</option>
-              <option>Fruits</option>
-              <option>Vegetables</option>
-              <option>Juice</option>
-              <option>Sweets</option>
-              <option>Other</option>
+                <option value="">Select</option>
+                <option>Vegetarian</option>
+                <option>Non-Vegetarian</option>
+                <option>Snacks</option>
+                <option>Drinks</option>
+                <option>Rice</option>
+                <option>Bread</option>
+                <option>Fruits</option>
+                <option>Vegetables</option>
+                <option>Juice</option>
+                <option>Sweets</option>
+                <option>Other</option>
             </select>
             <input id="foodOther" type="text" placeholder="If Other, specify here">
-          </div>
+            </div>
 
-          <!-- Location -->
-          <div class="field">
-            <label for="location">Location</label>
-            <input id="location" required>
-            <button type="button" class="link-btn" onclick="getLocation()">Use GPS</button>
-          </div>
+            <div class="field">
+                <label for="location">Location</label>
+                <input id="location" required>
+                <button type="button" class="link-btn" onclick="getLocation()">Use GPS</button>
+            </div>
 
-          <!-- Pickup Option -->
-          <div class="field">
-            <label for="delivery">Pickup Option</label>
-            <select id="delivery" required>
-              <option value="">Select</option>
-              <option>Self Delivered by Donor</option>
-              <option>Delivery Boy (if NGO has)</option>
-              <option>Volunteer (only acceptable by NGO)</option>
-            </select>
-          </div>
+            <div class="field">
+                <label for="delivery">Pickup Option</label>
+                <select id="delivery" required>
+                    <option>Self Delivered by Donor</option>
+                    <option>Delivery Boy (if NGO has)</option>
+                    <option>Volunteer (only acceptable by NGO)</option>
+                </select>
+            </div>
 
-          <!-- Additional Notes -->
-          <div class="field">
-            <label for="notes">Additional Notes</label>
-            <textarea id="notes" rows="2"></textarea>
-          </div>
+            <div class="field">
+                <label for="notes">Additional Notes</label>
+                <textarea id="notes" rows="2" required></textarea>
+            </div>
 
-          <!-- Cooked Time -->
-          <div class="field">
-            <label for="cookedTime">Cooked Time</label>
-            <input id="cookedTime" type="time" required>
-          </div>
+            <div class="field">
+                <label for="cookedTime">Cooked Time</label>
+                <input id="cookedTime" type="time" required>
+            </div>
 
-          <!-- Official Email -->
-          <div class="field">
-            <label for="email">Official Email</label>
-            <input id="email" type="email" required>
-          </div>
+            <!-- EMAIL STEP -->
+            <div class="field">
+                <label for="email">Official Email</label>
+                <input id="email" type="email" required>
+            </div>
 
-          <button type="submit">Submit Request</button>
+            <!-- CAPTCHA appears AFTER email -->
+            <div class="field hidden" id="captchaBox">
+                <label>Enter Code: <span id="captchaText"></span></label>
+                <input id="captchaInput">
+            </div>
+
+            <button id="submitBtn" disabled>Submit Request</button>
+
+        </form>
+
+        <!-- OTP -->
+        <div id="otpBox" class="hidden">
+            <h3>Verify OTP</h3>
+            <input id="otpInput" placeholder="Enter OTP">
+            <button onclick="verifyOTP()">Verify</button>
         </div>
-      </form>
 
-      <!-- Success Message -->
-      <div id="success" class="hidden">
-        <p>Donation submitted successfully!</p>
-      </div>
+        <!-- SUCCESS -->
+        <div id="success" class="hidden">
+            <div class="check"></div>
+            <p>Request placed successfully</p>
+        </div>
+
     </section>
-  </main>
-  <script src="script.js"></script>
+</main>
+
+<script src="script.js"></script>
 </body>
 </html>
