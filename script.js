@@ -21,7 +21,7 @@ function verifyOTP() {
 function getLocation() {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function(position) {
-      document.getElementById("donorLocation").value =
+      document.getElementById("location").value =
         position.coords.latitude + ", " + position.coords.longitude;
     });
   } else {
