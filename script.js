@@ -45,6 +45,20 @@ function verifyOTP() {
     }
 }
 
+
+// Show "Other" text field only when "Other" is selected
+function toggleOtherFood() {
+  const foodType = document.getElementById("foodType").value;
+  const foodOther = document.getElementById("foodOther");
+
+  if (foodType === "Other") {
+    foodOther.classList.remove("hidden");
+  } else {
+    foodOther.classList.add("hidden");
+    foodOther.value = ""; // clear if not needed
+  }
+}
+
 // CAPTCHA generator
 function generateCaptcha() {
     return Math.random().toString(36).substring(2, 7);
