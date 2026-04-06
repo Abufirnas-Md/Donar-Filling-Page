@@ -1,118 +1,57 @@
-/* General layout */
 body {
   font-family: Arial, sans-serif;
-  background: #f7f9fc;
+  background: #f4f4f4;
   margin: 0;
   padding: 0;
+}
+
+.container {
+  max-width: 600px;
+  margin: 30px auto;
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+h1.logo {
+  text-align: center;
   color: #333;
 }
 
-main {
-  max-width: 700px;
-  margin: 40px auto;
-  padding: 20px;
-  background: #fff;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+h1.logo span {
+  color: #e74c3c;
 }
 
-h1 {
-  text-align: center;
-  color: #2c3e50;
-}
-
-.subtitle {
-  text-align: center;
-  font-size: 0.95rem;
-  color: #555;
-  margin-bottom: 20px;
-}
-
-/* Card container */
-.card {
-  padding: 20px;
-}
-
-/* Form sections */
-.form-group {
-  margin-bottom: 18px;
+.field {
+  margin-bottom: 15px;
 }
 
 label {
   display: block;
+  margin-bottom: 5px;
   font-weight: bold;
-  margin-bottom: 6px;
 }
 
-input, select, textarea {
+input, select, textarea, button {
   width: 100%;
-  padding: 10px;
+  padding: 8px;
+  margin-top: 5px;
   border: 1px solid #ccc;
-  border-radius: 6px;
-  font-size: 0.95rem;
+  border-radius: 4px;
 }
 
-textarea {
-  resize: vertical;
-  min-height: 80px;
-}
-
-/* Priority toggle buttons */
-.priority-toggle {
-  display: flex;
-  gap: 12px;
-  margin-bottom: 20px;
-}
-
-.btn-priority {
-  flex: 1;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  background: #f0f0f0;
+button {
+  background: #e74c3c;
+  color: #fff;
+  border: none;
   cursor: pointer;
-  font-size: 0.9rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  transition: background 0.3s, border-color 0.3s;
 }
 
-.btn-priority:hover {
-  background: #e6e6e6;
+button:hover {
+  background: #c0392b;
 }
 
-.active-normal {
-  border-color: #2ecc71;
-  background: #eafaf1;
-}
-
-.active-urgent {
-  border-color: #e74c3c;
-  background: #fdecea;
-}
-
-.dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  display: inline-block;
-}
-
-.red { background: #e74c3c; }
-.green { background: #2ecc71; }
-
-/* Hidden sections */
-.hidden-section {
+.hidden {
   display: none;
 }
-
-/* Buttons */
-.next-btn, .submit-btn, .otp-btn {
-  backgroundHere’s the **fully corrected and complete code** for your project — HTML, JavaScript, and CSS — all cleaned up and working together seamlessly.
-
-
-  <script src="script.js"></script>
-</body>
-</html>
