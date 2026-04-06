@@ -1,67 +1,144 @@
-:root {
-    --primary-green: #219653;
-    --light-green: #eef7f1;
-    --border-color: #ddd;
-    --bg-color: #f8f9f7;
-}
-
+/* General layout */
 body {
-    font-family: 'Inter', sans-serif;
-    background-color: var(--bg-color);
-    margin: 0;
-    padding: 20px;
+  font-family: Arial, sans-serif;
+  background: #f7f9fc;
+  margin: 0;
+  padding: 0;
+  color: #333;
 }
 
-.container { max-width: 480px; margin: 0 auto; }
-
-header { margin-bottom: 25px; }
-.logo { font-size: 22px; font-weight: 800; margin-bottom: 15px; }
-.logo span { color: var(--primary-green); }
-
-.user-types { display: flex; gap: 10px; }
-.user-types button {
-    background: none; border: none; padding: 6px 12px; color: #666; cursor: pointer;
-}
-.user-types button.active {
-    background: white; border: 1px solid #ddd; border-radius: 20px; color: #000;
+main {
+  max-width: 700px;
+  margin: 40px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
-h1 { font-size: 24px; margin: 0 0 8px 0; }
-.subtitle { color: #666; font-size: 14px; margin-bottom: 25px; }
+h1 {
+  text-align: center;
+  color: #2c3e50;
+}
 
+.subtitle {
+  text-align: center;
+  font-size: 0.95rem;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+/* Card container */
 .card {
-    background: white; border-radius: 15px; padding: 25px;
-    border: 1px solid #eee; box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+  padding: 20px;
 }
 
-.form-group { margin-bottom: 18px; }
-label { display: block; font-size: 14px; font-weight: 600; margin-bottom: 8px; }
+/* Form sections */
+.form-group {
+  margin-bottom: 18px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 6px;
+}
 
 input, select, textarea {
-    width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px;
-    font-size: 15px; box-sizing: border-box;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 0.95rem;
 }
 
-.priority-toggle { display: flex; gap: 12px; margin-bottom: 20px; }
+textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+/* Priority toggle buttons */
+.priority-toggle {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
 .btn-priority {
-    flex: 1; padding: 15px; border: 1px solid #eee; border-radius: 10px;
-    background: #f9f9f9; cursor: pointer; display: flex; align-items: center; gap: 8px;
-}
-.active-urgent { background: #fff5f5; border-color: #ffc1c1; }
-.active-normal { background: var(--light-green); border-color: #c3e6cb; }
-
-.dot { width: 10px; height: 10px; border-radius: 50%; }
-.red { background: #eb5757; }
-.green { background: #27ae60; }
-
-.hidden-section { display: none; padding-top: 20px; border-top: 1px solid #f0f0f0; margin-top: 20px; }
-
-.otp-group { display: flex; gap: 8px; }
-.otp-btn { background: white; border: 1px solid #ddd; border-radius: 8px; padding: 0 15px; cursor: pointer; white-space: nowrap; }
-
-.next-btn, .submit-btn {
-    width: 100%; padding: 15px; border: none; border-radius: 8px;
-    background: var(--primary-green); color: white; font-weight: 700; cursor: pointer;
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background: #f0f0f0;
+  cursor: pointer;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: background 0.3s, border-color 0.3s;
 }
 
-textarea { height: 90px; resize: none; }
+.btn-priority:hover {
+  background: #e6e6e6;
+}
+
+.active-normal {
+  border-color: #2ecc71;
+  background: #eafaf1;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.red { background: #e74c3c; }
+.green { background: #2ecc71; }
+
+/* Hidden sections */
+.hidden-section {
+  display: none;
+}
+
+/* Buttons */
+.next-btn, .submit-btn, .otp-btn {
+  background: #3498db;
+  color: #fff;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: background 0.3s;
+}
+
+.next-btn:hover, .submit-btn:hover, .otp-btn:hover {
+  background: #2980b9;
+}
+
+.submit-btn {
+  width: 100%;
+  margin-top: 15px;
+}
+
+/* OTP group */
+.otp-group {
+  display: flex;
+  gap: 10px;
+}
+
+.otp-group input {
+  flex: 1;
+}
+
+.otp-btn {
+  flex-shrink: 0;
+}
+
+/* File input */
+.file-input input {
+  padding: 6px;
+}
