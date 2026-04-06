@@ -88,6 +88,11 @@ textarea {
   background: #eafaf1;
 }
 
+.active-urgent {
+  border-color: #e74c3c;
+  background: #fdecea;
+}
+
 .dot {
   width: 10px;
   height: 10px;
@@ -105,40 +110,9 @@ textarea {
 
 /* Buttons */
 .next-btn, .submit-btn, .otp-btn {
-  background: #3498db;
-  color: #fff;
-  border: none;
-  padding: 10px 16px;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 0.95rem;
-  transition: background 0.3s;
-}
+  backgroundHere’s the **fully corrected and complete code** for your project — HTML, JavaScript, and CSS — all cleaned up and working together seamlessly.
 
-.next-btn:hover, .submit-btn:hover, .otp-btn:hover {
-  background: #2980b9;
-}
 
-.submit-btn {
-  width: 100%;
-  margin-top: 15px;
-}
-
-/* OTP group */
-.otp-group {
-  display: flex;
-  gap: 10px;
-}
-
-.otp-group input {
-  flex: 1;
-}
-
-.otp-btn {
-  flex-shrink: 0;
-}
-
-/* File input */
-.file-input input {
-  padding: 6px;
-}
+  <script src="script.js"></script>
+</body>
+</html>
